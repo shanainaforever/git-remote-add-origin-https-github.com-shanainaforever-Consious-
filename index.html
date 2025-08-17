@@ -1,231 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>InstaStyle • Share moments</title>
-  <meta name="description" content="A modern, Instagram-style landing page demo for learning." />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Landing Page</title>
   <style>
-    /* ---- CSS Reset ---- */
-    * { box-sizing: border-box; }
-    body, h1, h2, h3, p { margin: 0; }
-    img, svg { display: block; max-width: 100%; }
-
-    /* ---- Theme ---- */
-    :root {
-      --bg: #fff;
-      --text: #111;
-      --muted: #737373;
-      --border: #dbdbdb;
-      --card: #fff;
-      --primary: #0095f6;
-      --link: #00376b;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    .container { width: min(980px, 92%); margin-inline: auto; }
-
-    /* Header */
-    .site-header {
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
-    }
-    .header-inner { display: flex; justify-content: space-between; align-items: center; }
-    .logo { height: 28px; }
-
-    /* Hero grid */
-    .hero { padding: 2rem 0; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 2rem;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      display: flex;
+      justify-content: center;
       align-items: center;
+      min-height: 100vh;
+      margin: 0;
     }
-    @media (max-width: 880px) {
-      .hero-grid { grid-template-columns: 1fr; }
+    .container {
+      text-align: center;
+      background: #fff;
+      padding: 40px;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
     }
-
-    /* Mockup */
-    .phone {
-      border: 10px solid #111;
-      border-radius: 36px;
-      width: min(320px, 90%);
-      aspect-ratio: 9/19;
-      background: #000;
-      position: relative;
-      overflow: hidden;
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      color: #262626;
+      margin-bottom: 20px;
     }
-    .slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 300ms;
-      object-fit: cover;
+    input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
     }
-    .slide.is-active { opacity: 1; }
-    .carousel-btn {
-      position: absolute; top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.4);
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #3897f0;
       color: #fff;
       border: none;
-      padding: 0.4rem 0.6rem;
-      cursor: pointer;
-      border-radius: 50%;
-    }
-    .prev { left: 6px; }
-    .next { right: 6px; }
-    .dots {
-      position: absolute; bottom: 6px; left: 0; right: 0;
-      display: flex; justify-content: center; gap: 6px;
-    }
-    .dots button {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      border: 1px solid #fff;
-      background: transparent;
-    }
-    .dots button[aria-selected="true"] { background: #fff; }
-
-    /* Auth card */
-    .card {
-      border: 1px solid var(--border);
-      padding: 1rem;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      background: var(--card);
-    }
-    .field { margin-bottom: .7rem; }
-    input {
-      width: 100%;
-      padding: .6rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-    }
-    .btn {
-      display: inline-block;
-      text-align: center;
-      padding: .6rem;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
+      border-radius: 4px;
       font-weight: bold;
-      margin-top: .5rem;
+      cursor: pointer;
     }
-    .btn-primary { background: var(--primary); color: #fff; width: 100%; }
-    .btn-social { background: #e7f3ff; width: 100%; }
-    .link { color: var(--link); text-decoration: none; }
-    .divider { text-align: center; margin: 1rem 0; color: var(--muted); }
-
-    /* Footer */
-    .site-footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
+    button:hover {
+      background: #2878c8;
     }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: .5rem; }
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #8e8e8e;
+    }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <svg viewBox="0 0 180 32" class="logo"><text x="0" y="24" font-size="24">InstaStyle</text></svg>
-      <a class="btn btn-social" href="#download">Get the app</a>
+  <div class="container">
+    <div class="logo">Instagram</div>
+    <input type="text" placeholder="Phone number, username, or email">
+    <input type="password" placeholder="Password">
+    <button>Log In</button>
+    <div class="footer">
+      Don’t have an account? <a href="#">Sign up</a>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <!-- Phone preview -->
-        <div class="phone">
-          <img src="https://picsum.photos/id/1015/400/800" alt="Feed" class="slide is-active">
-          <img src="https://picsum.photos/id/1016/400/800" alt="Explore" class="slide">
-          <img src="https://picsum.photos/id/1018/400/800" alt="Reels" class="slide">
-          <button class="carousel-btn prev">&#10094;</button>
-          <button class="carousel-btn next">&#10095;</button>
-          <div class="dots"></div>
-        </div>
-
-        <!-- Auth form -->
-        <div>
-          <div class="card">
-            <form id="loginForm">
-              <div class="field">
-                <input type="text" placeholder="Phone number, username, or email" required>
-              </div>
-              <div class="field">
-                <input id="password" type="password" placeholder="Password" required>
-              </div>
-              <button class="btn btn-primary" type="submit">Log in</button>
-              <div class="divider">OR</div>
-              <button class="btn btn-social" type="button">Continue with Facebook</button>
-              <p><a class="link" href="#">Forgot password?</a></p>
-            </form>
-          </div>
-          <div class="card">
-            <p>Don’t have an account? <a class="link" href="#">Sign up</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-links">
-      <a href="#">About</a><a href="#">Help</a><a href="#">Jobs</a><a href="#">Privacy</a><a href="#">Terms</a>
-    </div>
-    <p>&copy; <span id="year"></span> InstaStyle</p>
-  </footer>
-
-  <script>
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Carousel
-    const slides = document.querySelectorAll(".slide");
-    const dotsWrap = document.querySelector(".dots");
-    let index = 0;
-
-    function renderDots() {
-      dotsWrap.innerHTML = "";
-      slides.forEach((_, i) => {
-        const b = document.createElement("button");
-        b.setAttribute("aria-selected", i === index ? "true" : "false");
-        b.onclick = () => go(i);
-        dotsWrap.appendChild(b);
-      });
-    }
-    function show(i) {
-      slides.forEach((s, k) => s.classList.toggle("is-active", k === i));
-      [...dotsWrap.children].forEach((d, k) =>
-        d.setAttribute("aria-selected", k === i ? "true" : "false")
-      );
-    }
-    function go(i) {
-      index = (i + slides.length) % slides.length;
-      show(index);
-    }
-    document.querySelector(".prev").onclick = () => go(index - 1);
-    document.querySelector(".next").onclick = () => go(index + 1);
-
-    renderDots();
-    show(index);
-    setInterval(() => go(index + 1), 4000);
-
-    // Demo login
-    document.getElementById("loginForm").onsubmit = (e) => {
-      e.preventDefault();
-      alert("Demo login only. No server call.");
-    };
-  </script>
+  </div>
 </body>
 </html>
